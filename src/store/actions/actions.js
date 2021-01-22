@@ -1,9 +1,12 @@
+import { v4 as uuidv4 } from 'uuid'
+
 /*
 actions type
  */
 
-export const ELEMENT_ADD = 'ELEMENT_ADD';
-export const ELEMENT_DELETE = 'ELEMENT_DELETE';
+export const ADD_ELEMENT = 'ADD_ELEMENT';
+export const DELETE_ELEMENT = 'DELETE_ELEMENT';
+
 
 
 /*
@@ -11,16 +14,22 @@ action generators
  */
 
 export function addElement(text, parentID) {
+    let id = uuidv4().toString();
     return {
-        type: ELEMENT_ADD,
-        text: text,
-        parentID: parentID,
+        type: ADD_ELEMENT,
+        payload: {
+            id: id,
+            text: text,
+            parentID: parentID,
+        }
     }
 }
 
 export function deleteElement(elementID) {
     return {
-        type: ELEMENT_DELETE,
-        elementID: elementID,
+        type: DELETE_ELEMENT,
+        payload: {
+            elementID: elementID,
+        }
     }
 }

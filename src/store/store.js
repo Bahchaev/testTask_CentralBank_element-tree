@@ -1,3 +1,3 @@
 import { createStore } from "redux";
-const store = createStore();
-export default store;
+import elementsApp from "./reducers/combineReducer";
+export const store = createStore(elementsApp);
