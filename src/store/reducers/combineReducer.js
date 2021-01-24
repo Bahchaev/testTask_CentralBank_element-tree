@@ -1,7 +1,7 @@
 import {combineReducers} from "redux";
-import {elements} from "./reducers";
+import elements from "./reducers";
 
-const elementsApp = combineReducers({
-    elements: elements,
+const rootReducer = combineReducers({
+    elements,
 });
-export default elementsApp
+export default rootReducer

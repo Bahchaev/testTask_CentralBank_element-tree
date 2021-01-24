@@ -7,8 +7,6 @@ actions type
 export const ADD_ELEMENT = 'ADD_ELEMENT';
 export const DELETE_ELEMENT = 'DELETE_ELEMENT';
 
-
-
 /*
 action generators
  */
@@ -21,15 +19,6 @@ export function addElement(text, parentID) {
             id: id,
             text: text,
             parentID: parentID,
-        }
-    }
-}
-
-export function deleteElement(elementID) {
-    return {
-        type: DELETE_ELEMENT,
-        payload: {
-            elementID: elementID,
         }
     }
 }

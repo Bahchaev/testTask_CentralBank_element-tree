@@ -1,29 +1,36 @@
-import {ADD_ELEMENT, addElement, DELETE_ELEMENT} from "../actions/actions";
+import {ADD_ELEMENT} from "../actions/actions";
 
 const initialState = {
-    elements: {}
+    root: {
+        id: "root",
+        text: "Root",
+        parentID: null,
+        children: []
+    }
 };
 
-export function elements(state = {}, action) {
+function elements(state = initialState, action) {
+
     switch (action.type) {
         case ADD_ELEMENT: {
+            console.log(state)
             return {
                 ...state,
+                [action.payload.parentID]: {
+                    ...state[action.payload.parentID],
+                    children: [...state[action.payload.parentID].children, [action.payload.id].toString()]
+                },
                 [action.payload.id]: {
+                    id: action.payload.id,
                     text: action.payload.text,
                     parent: action.payload.parentID,
                     children: []
                 }
             }
         }
-
-        case DELETE_ELEMENT: {
-            let newState = {...state};
-            delete newState[action.payload.elementID];
-            return newState
-        }
-
         default:
             return state
     }
 }
+
+export default elements

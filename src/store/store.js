@@ -1,3 +1,3 @@
-import { createStore } from "redux";
-import elementsApp from "./reducers/combineReducer";
-export const store = createStore(elementsApp);
+// import { createStore } from "redux";
+// // import rootReducer from "./reducers/combineReducer";
+// // export const store = createStore(rootReducer);
