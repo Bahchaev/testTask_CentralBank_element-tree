@@ -8,7 +8,7 @@ export default function AddField({inputFieldContainer, inputField, addElement, e
                 addElement(inputField.current.value, element.id);
                 inputField.current.value = "";
                 inputFieldContainer.current.style.display = 'none';
-            }}>ok</button>
+            }}>OK</button>
             <button onClick={() => {
                 inputField.current.value = "";
                 inputFieldContainer.current.style.display = 'none';

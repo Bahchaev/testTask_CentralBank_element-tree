@@ -1,5 +1,5 @@
 import React from "react";
-import NodeContainer from "../../Containers/Node";
+import NodeContainer from "../../Containers/NodeContainer";
 
 
 function App() {
