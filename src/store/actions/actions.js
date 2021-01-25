@@ -22,3 +22,12 @@ export function addElement(text, parentID) {
         }
     }
 }
+
+export function deleteElement(elementID) {
+    return {
+        type: DELETE_ELEMENT,
+        payload: {
+            id: elementID,
+        }
+    }
+}
