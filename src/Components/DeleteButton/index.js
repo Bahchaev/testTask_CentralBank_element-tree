@@ -1,7 +1,7 @@
 import React from "react"
 
-export default function DeleteButton({onClick}) {
+export default function DeleteButton({onClick, style}) {
     return (
-        <button onClick={onClick}>del</button>
+        <button onClick={onClick} style={style}>del</button>
     )
 }

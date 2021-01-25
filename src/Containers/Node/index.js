@@ -1,11 +1,12 @@
 import {connect} from "react-redux"
-import Root from '../../Components/Root/index'
+import Node from '../../Components/Node/index'
 import {addElement, deleteElement} from "../../store/actions/actions";
 
-const mapStateToProps = () => {
-    return ((state) => ({
-        state: state
-    }))
+const mapStateToProps = (state) => {
+    return {
+        state: state,
+        elementID: 'root'
+    }
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -13,9 +14,9 @@ const mapDispatchToProps = dispatch => ({
     deleteElement: (elementID) => dispatch(deleteElement(elementID))
 });
 
-const RootContainer = connect(
-    mapStateToProps(),
+const NodeContainer = connect(
+    mapStateToProps,
     mapDispatchToProps
-)(Root);
+)(Node);
 
-export default RootContainer
+export default NodeContainer

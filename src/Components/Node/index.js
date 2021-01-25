@@ -1,25 +1,42 @@
-import React from "react"
+import React, {useRef} from "react"
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import AddButton from "../AddButton";
+import AddField from "../AddField";
 import DeleteButton from "../DeleteButton";
 
 
 function Node({state, elementID, addElement, deleteElement}) {
 
+    console.log(state);
 
     let element = state[elementID];
+    const inputFieldContainer = useRef(null);
+    const inputField = useRef(null);
+
     return (
-        <ul className={classNames(`Container`)}>
-            <li className={classNames(`Node`, `ExpandOpen`)}>
+        <ul>
+            <li>
                 <div>
-                    <span className={classNames(`Content`)}>{`${element.text}  `}</span>
-                    <AddButton onClick={() => addElement('some text', element.id)}/>
-                    <DeleteButton onClick={() => deleteElement(element.id)}/>
+                    <span>{`${element.text}`}</span>
+                    <AddButton onClick={() => {
+                        inputFieldContainer.current.style.display = 'block';
+                        inputField.current.focus();
+                    }}/>
+                    <DeleteButton
+                        onClick={() => deleteElement(element.id)}
+                        style={(elementID === 'root') ? {display: 'none'} : {display: 'inline-block'}}
+                    />
                 </div>
+                <AddField
+                    inputFieldContainer={inputFieldContainer}
+                    inputField={inputField}
+                    addElement={addElement}
+                    element={element}
+                />
             </li>
             {
-                element.children.map(child => {
+                element.children.slice(0).reverse().map(child => {
                         if (child) return (
                             <Node
                                 state={state}
@@ -37,7 +54,6 @@ function Node({state, elementID, addElement, deleteElement}) {
 
 Node.propTypes = {
     state: PropTypes.object.isRequired,
-    elementID: PropTypes.string.isRequired,
     addElement: PropTypes.func.isRequired,
     deleteElement: PropTypes.func.isRequired
 };

@@ -1,11 +1,11 @@
 import React from "react";
-import RootContainer from "../../Containers/RootContainer";
+import NodeContainer from "../../Containers/Node";
 
 
 function App() {
 
     return (
-        <RootContainer />
+        <NodeContainer />
     );
 }
 
