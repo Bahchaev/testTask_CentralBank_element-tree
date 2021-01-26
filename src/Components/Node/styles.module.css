@@ -12,6 +12,31 @@ span {
 
 button {margin-right: 10px}
 
-ul ul:last-child li:first-child {
-    margin-bottom: 15px;
+
+ul:not(:first-child) {
+    background-image : url("./nodeLine.gif");
+    background-position : top left;
+    background-repeat : repeat-y;
+}
+
+ul:not(:first-child):last-child {
+    background:
+            url(./nodeLine.gif) 0 -9px no-repeat,
+            url(./nodeConnector.gif) no-repeat;
+}
+
+.elementContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.deleteButtonContainer,
+.addButtonContainer {
+    opacity: 0.0;
+}
+
+.elementContainer:hover .deleteButtonContainer,
+.elementContainer:hover .addButtonContainer {
+    opacity: 1;
 }

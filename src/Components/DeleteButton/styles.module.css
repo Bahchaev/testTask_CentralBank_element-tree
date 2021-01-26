@@ -1,0 +1,10 @@
+.delButton {
+    background: url("./delBtn.png") center/contain ;
+    height: 20px;
+    width: 20px;
+    border: none;
+}
+
+.delButton:hover {
+    cursor: pointer;
+}

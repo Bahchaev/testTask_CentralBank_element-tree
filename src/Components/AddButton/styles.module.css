@@ -1,0 +1,10 @@
+.addButton {
+    background: url("./addBtn.png") center/contain ;
+    height: 20px;
+    width: 20px;
+    border: none;
+}
+
+.addButton:hover {
+    cursor: pointer;
+}

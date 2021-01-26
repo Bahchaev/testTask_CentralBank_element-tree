@@ -59,15 +59,19 @@ function Node({
                         addButtonRef={addButtonRef}
                         deleteButtonRef={deleteButtonRef}
                     />
-                    <AddButton
-                        onClick={addButtonClick}
-                        addButtonRef={addButtonRef}
-                    />
-                    <DeleteButton
-                        onClick={() => deleteElement(element.id)}
-                        elementID={elementID}
-                        deleteButtonRef={deleteButtonRef}
-                    />
+                    <div className={styles.addButtonContainer}>
+                        <AddButton
+                            onClick={addButtonClick}
+                            addButtonRef={addButtonRef}
+                        />
+                    </div>
+                    <div className={styles.deleteButtonContainer}>
+                        <DeleteButton
+                            onClick={() => deleteElement(element.id)}
+                            elementID={elementID}
+                            deleteButtonRef={deleteButtonRef}
+                        />
+                    </div>
                 </div>
                 <AddField
                     inputFieldContainer={inputFieldContainer}
@@ -75,7 +79,8 @@ function Node({
                     addElement={addElement}
                     element={element}
                 />
-            </li>
+
+
             {
                 element.children.slice(0).reverse().map(child => {
                     if (child) return (
@@ -89,6 +94,7 @@ function Node({
                     )
                 })
             }
+            </li>
         </ul>
     )
 }
