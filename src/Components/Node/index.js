@@ -4,50 +4,67 @@ import classNames from 'classnames';
 import AddButton from "../AddButton";
 import AddField from "../AddField";
 import DeleteButton from "../DeleteButton";
-import NodeHeaderCorrectionField from "../nodeHeaderCorrectionField";
+import ElementEditField from "../ElementEditField";
 
 
-function Node({state, elementID, addElement, deleteElement}) {
+function Node({
+                  state,
+                  elementID,
+                  addElement,
+                  deleteElement,
+                  editElement
+              }) {
 
     console.log(state);
 
     const element = state[elementID];
     const inputFieldContainer = useRef(null);
     const inputField = useRef(null);
-    const correctionFieldContainer = useRef(null)
-    const correctionField = useRef(null);
+    const editFieldContainer = useRef(null);
+    const editField = useRef(null);
     const nodeHeader = useRef(null);
+    const addButtonRef = useRef(null);
+    const deleteButtonRef = useRef(null);
 
     const addButtonClick = () => {
         inputFieldContainer.current.style.display = 'block';
         inputField.current.focus();
     };
 
-    const nodeHeaderHandleClick = () => {
-        correctionFieldContainer.current.style.display = 'block';
-        correctionField.current.value = element.text;
-        correctionField.current.focus();
-        nodeHeader.current.style.display = 'none'
+    const headerHandleClick = () => {
+        editFieldContainer.current.style.display = 'block';
+        editField.current.value = element.text;
+        editField.current.focus();
+        nodeHeader.current.style.display = 'none';
+        addButtonRef.current.style.display = 'none';
+        deleteButtonRef.current.style.display = 'none'
     };
 
     return (
         <ul>
             <li>
                 <div>
-                    <span ref={nodeHeader} onClick={nodeHeaderHandleClick}>{`${element.text}`}</span>
-
-                    <NodeHeaderCorrectionField
-                        correctionFieldContainer={correctionFieldContainer}
-                        correctionField={correctionField}
+                    <span
+                        ref={nodeHeader}
+                        onClick={headerHandleClick}
+                    >{`${element.text}`}</span>
+                    <ElementEditField
+                        editFieldContainer={editFieldContainer}
+                        editField={editField}
                         element={element}
                         nodeHeader={nodeHeader}
-                        style={{display: 'none'}}
+                        editElement={editElement}
+                        addButtonRef={addButtonRef}
+                        deleteButtonRef={deleteButtonRef}
                     />
-
-                    <AddButton onClick={addButtonClick}/>
+                    <AddButton
+                        onClick={addButtonClick}
+                        addButtonRef={addButtonRef}
+                    />
                     <DeleteButton
                         onClick={() => deleteElement(element.id)}
-                        style={(elementID === 'root') ? {display: 'none'} : {display: 'inline-block'}}
+                        elementID={elementID}
+                        deleteButtonRef={deleteButtonRef}
                     />
                 </div>
                 <AddField
@@ -65,6 +82,7 @@ function Node({state, elementID, addElement, deleteElement}) {
                             elementID={child}
                             addElement={addElement}
                             deleteElement={deleteElement}
+                            editElement={editElement}
                         >{child}</Node>
                     )
                 })
@@ -77,7 +95,8 @@ Node.propTypes = {
     state: PropTypes.object.isRequired,
     elementID: PropTypes.string.isRequired,
     addElement: PropTypes.func.isRequired,
-    deleteElement: PropTypes.func.isRequired
+    deleteElement: PropTypes.func.isRequired,
+    editElement: PropTypes.func.isRequired
 };
 
 export default Node

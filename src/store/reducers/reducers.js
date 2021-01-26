@@ -1,4 +1,4 @@
-import {ADD_ELEMENT, DELETE_ELEMENT} from "../actions/actions";
+import {ADD_ELEMENT, DELETE_ELEMENT, EDIT_ELEMENT} from "../actions/actions";
 
 const initialState = {
     root: {
@@ -30,7 +30,6 @@ function elements(state = initialState, action) {
         }
 
         case DELETE_ELEMENT: {
-
             let newState = {...state};
 
             const deleteElement = (elementID) => {
@@ -49,6 +48,17 @@ function elements(state = initialState, action) {
             deleteElement(action.payload.id);
             return newState
         }
+
+        case EDIT_ELEMENT: {
+            return {
+                ...state,
+                [action.payload.id]: {
+                    ...state[action.payload.id],
+                    text: action.payload.text,
+                }
+            }
+        }
+
         default:
             return state
     }

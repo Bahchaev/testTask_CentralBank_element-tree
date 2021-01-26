@@ -1,7 +1,7 @@
 import React from "react"
 
-export default function AddButton({onClick}) {
+export default function AddButton({onClick, addButtonRef}) {
     return (
-        <button onClick={onClick}>add</button>
+        <button onClick={onClick} ref={addButtonRef}>add</button>
     )
 }

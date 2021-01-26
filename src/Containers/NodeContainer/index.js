@@ -1,6 +1,6 @@
 import {connect} from "react-redux"
 import Node from '../../Components/Node/index'
-import {addElement, deleteElement} from "../../store/actions/actions";
+import {addElement, deleteElement, editElement} from "../../store/actions/actions";
 
 const mapStateToProps = (state) => {
     return {
@@ -11,7 +11,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
     addElement: (text, parentID) => dispatch(addElement(text, parentID)),
-    deleteElement: (elementID) => dispatch(deleteElement(elementID))
+    deleteElement: (elementID) => dispatch(deleteElement(elementID)),
+    editElement: (elementID, text) => dispatch(editElement(elementID, text))
 });
 
 const NodeContainer = connect(

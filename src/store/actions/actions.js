@@ -6,6 +6,7 @@ actions type
 
 export const ADD_ELEMENT = 'ADD_ELEMENT';
 export const DELETE_ELEMENT = 'DELETE_ELEMENT';
+export const EDIT_ELEMENT = 'EDIT_ELEMENT';
 
 /*
 action generators
@@ -28,6 +29,16 @@ export function deleteElement(elementID) {
         type: DELETE_ELEMENT,
         payload: {
             id: elementID,
+        }
+    }
+}
+
+export function editElement(elementID, text) {
+    return {
+        type: EDIT_ELEMENT,
+        payload: {
+            id: elementID,
+            text: text,
         }
     }
 }

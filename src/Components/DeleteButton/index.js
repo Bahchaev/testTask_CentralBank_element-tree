@@ -1,7 +1,11 @@
 import React from "react"
 
-export default function DeleteButton({onClick, style}) {
+export default function DeleteButton({onClick, elementID, deleteButtonRef}) {
     return (
-        <button onClick={onClick} style={style}>del</button>
+        <button
+            onClick={onClick}
+            style={(elementID === 'root') ? {display: 'none'} : {display: 'inline-block'}}
+            ref={deleteButtonRef}
+        >del</button>
     )
 }

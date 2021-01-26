@@ -1,6 +1,13 @@
 import React from "react"
 
-export default function AddField({inputFieldContainer, inputField, addElement, element}) {
+export default function AddField(
+    {
+        inputFieldContainer,
+        inputField,
+        addElement,
+        element
+    }
+) {
     return (
         <ul ref={inputFieldContainer} style={{display: 'none'}}>
             <input type="text" ref={inputField}/>
@@ -8,11 +15,13 @@ export default function AddField({inputFieldContainer, inputField, addElement, e
                 addElement(inputField.current.value, element.id);
                 inputField.current.value = "";
                 inputFieldContainer.current.style.display = 'none';
-            }}>OK</button>
+            }}>OK
+            </button>
             <button onClick={() => {
                 inputField.current.value = "";
                 inputFieldContainer.current.style.display = 'none';
-            }}>Cancel</button>
+            }}>Cancel
+            </button>
         </ul>
     )
 }
