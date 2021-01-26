@@ -9,7 +9,7 @@ export default function AddField(
     }
 ) {
     return (
-        <ul ref={inputFieldContainer} style={{display: 'none'}}>
+        <div ref={inputFieldContainer} style={{display: 'none'}}>
             <input type="text" ref={inputField}/>
             <button onClick={() => {
                 addElement(inputField.current.value, element.id);
@@ -22,6 +22,6 @@ export default function AddField(
                 inputFieldContainer.current.style.display = 'none';
             }}>Cancel
             </button>
-        </ul>
+        </div>
     )
 }

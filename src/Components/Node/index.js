@@ -5,6 +5,7 @@ import AddButton from "../AddButton";
 import AddField from "../AddField";
 import DeleteButton from "../DeleteButton";
 import ElementEditField from "../ElementEditField";
+import styles from "./styles.module.css"
 
 
 function Node({
@@ -44,7 +45,7 @@ function Node({
     return (
         <ul>
             <li>
-                <div>
+                <div className={styles.elementContainer}>
                     <span
                         ref={nodeHeader}
                         onClick={headerHandleClick}

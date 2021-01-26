@@ -1,0 +1,17 @@
+li {
+    list-style-type: none;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+span {
+    margin-right: 10px;
+}
+
+button {margin-right: 10px}
+
+ul ul:last-child li:first-child {
+    margin-bottom: 15px;
+}

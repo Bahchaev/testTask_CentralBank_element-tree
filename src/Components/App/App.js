@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import Switch from "react-switch";
 import NodeContainer from "../../Containers/NodeContainer";
 import JSONContainer from "../../Containers/JSONContainer";
+import styles from "./styles.module.css"
 
 
 function App() {
@@ -12,8 +13,8 @@ function App() {
     };
 
     return (
-        <div>
-            <div>
+        <div className={styles.container}>
+            <div className={styles.switchContainer}>
                 <Switch onChange={handleSwitch} checked={isChecked}/> <span> Show JSON </span>
             </div>
             <div style={!isChecked ? {display: "none"} : {display: "block"}}><JSONContainer/></div>

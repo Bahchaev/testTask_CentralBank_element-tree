@@ -1,0 +1,14 @@
+.container {
+    max-width: 1900px;
+    margin: 0 auto;
+}
+
+.switchContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.switchContainer span {
+    margin-left: 10px;
+}
