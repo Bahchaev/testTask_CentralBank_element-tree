@@ -40,6 +40,7 @@ function Node({
         deleteButtonRef.current.style.display = 'none'
     };
 
+
     return (
         <ul>
             <li>

@@ -1,15 +1,18 @@
 import {ADD_ELEMENT, DELETE_ELEMENT, EDIT_ELEMENT} from "../actions/actions";
 
 const initialState = {
-    root: {
-        id: "root",
-        text: "Root",
-        parentID: null,
-        children: []
+    switcher: 'tree',
+    tree: {
+        root: {
+            id: "root",
+            text: "Root",
+            parentID: null,
+            children: []
+        }
     }
 };
 
-function elements(state = initialState, action) {
+function elements(state = initialState.tree, action) {
 
     switch (action.type) {
         case ADD_ELEMENT: {
