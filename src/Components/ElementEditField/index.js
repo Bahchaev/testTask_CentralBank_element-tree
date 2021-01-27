@@ -1,4 +1,5 @@
 import React, {useEffect} from "react"
+import styles from "./styles.module.css"
 
 export default function ElementEditField(
     {
@@ -45,10 +46,10 @@ export default function ElementEditField(
     });
 
     return (
-        <div ref={editFieldContainer} style={{display: 'none'}} className={'editFieldContainer'}>
+        <div ref={editFieldContainer} style={{display: 'none'}} className={styles.editFieldContainer}>
             <input type="text" ref={editField} style={{display: 'inline-block'}}/>
-            <button onClick={okClick}>OK</button>
-            <button onClick={cancelClick}>Cancel</button>
+            <button onClick={okClick} className={styles.confirmButton}/>
+            <button onClick={cancelClick} className={styles.cancelButton}/>
         </div>
     )
 }

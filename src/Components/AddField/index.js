@@ -1,4 +1,5 @@
 import React, {useEffect} from "react"
+import styles from "./styles.module.css"
 
 export default function AddField(
     {
@@ -35,10 +36,10 @@ export default function AddField(
     });
 
     return (
-        <div ref={inputFieldContainer} style={{display: 'none'}}>
+        <div ref={inputFieldContainer} style={{display: 'none'}} className={styles.inputFieldContainer}>
             <input type="text" ref={inputField}/>
-            <button onClick={okClick}>OK</button>
-            <button onClick={cancelClick}>Cancel</button>
+            <button onClick={okClick} className={styles.confirmButton}/>
+            <button onClick={cancelClick} className={styles.cancelButton}/>
         </div>
     )
 }

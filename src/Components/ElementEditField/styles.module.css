@@ -1,0 +1,29 @@
+.confirmButton {
+    background: url("../AddField/confirmIcon.png") center/contain ;
+    height: 20px;
+    width: 20px;
+    border: none;
+}
+
+.cancelButton {
+    background: url("../AddField/cancelIcon.png") center/contain ;
+    height: 20px;
+    width: 20px;
+    border: none;
+}
+
+.confirmButton:hover,
+.cancelButton:hover {
+    cursor: pointer;
+}
+
+.editFieldContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.editFieldContainer input,
+.editFieldContainer button {
+    margin-right: 10px;
+}

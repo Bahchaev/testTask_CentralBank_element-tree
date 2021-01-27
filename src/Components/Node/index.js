@@ -28,12 +28,12 @@ function Node({
     const deleteButtonRef = useRef(null);
 
     const addButtonClick = () => {
-        inputFieldContainer.current.style.display = 'block';
+        inputFieldContainer.current.style.display = 'flex';
         inputField.current.focus();
     };
 
     const headerHandleClick = () => {
-        editFieldContainer.current.style.display = 'block';
+        editFieldContainer.current.style.display = 'flex';
         editField.current.value = element.text;
         editField.current.focus();
         nodeHeader.current.style.display = 'none';
@@ -73,12 +73,15 @@ function Node({
                         />
                     </div>
                 </div>
-                <AddField
-                    inputFieldContainer={inputFieldContainer}
-                    inputField={inputField}
-                    addElement={addElement}
-                    element={element}
-                />
+                <ul>
+                    <AddField
+                        inputFieldContainer={inputFieldContainer}
+                        inputField={inputField}
+                        addElement={addElement}
+                        element={element}
+                    />
+                </ul>
+
 
 
             {
